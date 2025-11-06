@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>linktools</artifactId>
+    <version>1.0</version>
+
+    <!-- 依赖配置 -->
+    <dependencies>
+        <!-- Gson 依赖（JSON 处理） -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.6</version> <!-- 兼容 Java 8 的稳定版本 -->
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.6</version>
+        </dependency>
+
+        <!-- Java 8 内置 JavaFX，无需额外引入 -->
+    </dependencies>
+
+    <!-- 仓库配置 -->
+    <repositories>
+        <!-- 阿里云仓库（加速依赖下载） -->
+        <repository>
+            <id>aliyun-maven</id>
+            <url>https://maven.aliyun.com/repository/central</url>
+        </repository>
+    </repositories>
+
+    <!-- 编译配置 -->
+    <build>
+        <plugins>
+            <!-- 编译插件（指定 Java 8） -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source> <!-- Java 8 源码版本 -->
+                    <target>1.8</target> <!-- 编译目标版本 -->
+                    <encoding>UTF-8</encoding> <!-- 编码格式 -->
+                </configuration>
+            </plugin>
+
+            <!-- 打包插件（可选，用于生成可执行 JAR） -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef> <!-- 包含依赖 -->
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.WinCmdRun.Main</mainClass> <!-- 主类全路径 -->
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- 全局属性 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+</project>
