@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.WinCmdRun.controller.WinCmdRunController">
+
+    <!-- 左侧：程序分组和程序列表 -->
+    <left>
+        <HBox prefWidth="350.0" style="-fx-background-color: #f0f0f0; -fx-border-color: #d0d0d0;">
+            <!-- 程序分组（宽度150px） -->
+            <VBox prefWidth="150.0" style="-fx-border-width: 0 1px 0 0; -fx-border-color: #d0d0d0;">
+                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10px 0 5px 10px;" text="程序分组" />
+                <ListView fx:id="groupListView" prefHeight="550.0" />
+            </VBox>
+
+            <!-- 程序列表（宽度200px） -->
+            <VBox prefWidth="200.0">
+                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10px 0 5px 10px;" text="程序列表" />
+                <ListView fx:id="programListView" prefHeight="550.0" />
+            </VBox>
+        </HBox>
+    </left>
+
+    <!-- 右侧：程序配置区域 -->
+    <right>
+        <VBox fx:id="configContainer" prefWidth="850.0" spacing="8.0" style="-fx-background-color: #f0f0f0; -fx-border-color: #d0d0d0; -fx-padding: 10px;">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+
+            <!-- 标题 -->
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-underline: true;" text="程序配置" />
+
+            <!-- 1. 程序名称 -->
+            <HBox prefHeight="30.0" spacing="10.0">
+                <Label prefWidth="100.0" style="-fx-font-weight: bold;" text="程序名称:" />
+                <Label fx:id="programNameLabel" style="-fx-font-size: 14px; -fx-padding: 5px 0;" />
+            </HBox>
+
+            <!-- 2. 本地路径 -->
+            <HBox prefHeight="30.0" spacing="10.0">
+                <Label prefWidth="100.0" style="-fx-font-weight: bold;" text="本地路径:" />
+                <TextField fx:id="localPathField" prefWidth="600.0" style="-fx-font-size: 14px;" />
+                <Button fx:id="browseLocalBtn" mnemonicParsing="false" style="-fx-pref-width: 80.0;" text="浏览" />
+            </HBox>
+
+            <!-- 3. 远程链接 -->
+            <HBox prefHeight="30.0" spacing="10.0">
+                <Label prefWidth="100.0" style="-fx-font-weight: bold;" text="远程链接:" />
+                <TextField fx:id="updatePathField" prefWidth="600.0" style="-fx-font-size: 14px;" />
+                <Button fx:id="browseUpdateBtn" mnemonicParsing="false" style="-fx-pref-width: 80.0;" text="浏览" />
+            </HBox>
+
+            <!-- 4. 目标（单独区域） -->
+            <VBox prefWidth="840.0" spacing="3.0">
+                <Label style="-fx-font-weight: bold;" text="目标:" />
+<!--                <TextArea fx:id="targetArea" maxHeight="150.0" minHeight="80.0" prefHeight="${configContainer.height - 380}" promptText="这里是用来填充变量的，格式为：127.0.0.1:80&#10;启动参数" style="-fx-font-size: 14px;" wrapText="true" />-->
+                <TextArea fx:id="targetArea" maxHeight="150.0" minHeight="80.0" prefHeight="${configContainer.height - 380}" style="-fx-font-size: 14px;" wrapText="true" />
+            </VBox>
+
+            <!-- 5. 启动参数（竖向间隔缩小） -->
+            <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                <RadioButton fx:id="param1Radio" selected="true" style="-fx-font-size: 14px;" />
+                <Label prefWidth="80.0" style="-fx-font-weight: bold;" text="启动参数1:" />
+                <TextField fx:id="paramsField1" prefWidth="600.0" promptText="参数[file]：本地路径；参数[ip]：目标中的IP值；参数[port]：目标中的端口；参数[log]：保存日志-单独使用" style="-fx-font-size: 14px;" />
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                <RadioButton fx:id="param2Radio" style="-fx-font-size: 14px;" />
+                <Label prefWidth="80.0" style="-fx-font-weight: bold;" text="启动参数2:" />
+                <TextField fx:id="paramsField2" prefWidth="600.0" promptText="参数[file]：本地路径；参数[ip]：目标中的IP值；参数[port]：目标中的端口；参数[log]：保存日志-单独使用" style="-fx-font-size: 14px;" />
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                <RadioButton fx:id="param3Radio" style="-fx-font-size: 14px;" />
+                <Label prefWidth="80.0" style="-fx-font-weight: bold;" text="启动参数3:" />
+                <TextField fx:id="paramsField3" prefWidth="600.0" promptText="参数[file]：本地路径；参数[ip]：目标中的IP值；参数[port]：目标中的端口；参数[log]：保存日志-单独使用" style="-fx-font-size: 14px;" />
+            </HBox>
+
+            <!-- 6. 按钮区域 -->
+            <HBox alignment="CENTER" prefHeight="50.0" spacing="20.0" style="-fx-padding: 10px 0 0 0;">
+                <Button fx:id="startBtn" mnemonicParsing="false" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-pref-width: 120.0; -fx-font-size: 14px;" text="启动程序" />
+                <Button fx:id="saveBtn" mnemonicParsing="false" style="-fx-background-color: #ff9800; -fx-text-fill: white; -fx-pref-width: 120.0; -fx-font-size: 14px;" text="保存配置" />
+<!--                <Button fx:id="genCmdBtn" mnemonicParsing="false" text="使用说明"-->
+                <Button fx:id="helpBtn" mnemonicParsing="false" style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-pref-width: 120.0; -fx-font-size: 14px;" text="使用说明" />
+                <Button fx:id="openFolderBtn" mnemonicParsing="false" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-pref-width: 120.0; -fx-font-size: 14px;" text="打开文件夹" />
+            </HBox>
+
+            <!-- 7. 备注（最底部） -->
+            <VBox prefWidth="840.0" spacing="3.0" style="-fx-padding: 10px 0 0 0;">
+                <Label style="-fx-font-weight: bold;" text="备注:" />
+                <TextArea fx:id="remarksArea" maxHeight="120.0" minHeight="60.0" style="-fx-font-size: 14px;" wrapText="true" />
+            </VBox>
+        </VBox>
+    </right>
+
+</BorderPane>
