@@ -14,6 +14,9 @@ WinCmdRun-GUI 是一款基于 JavaFX 开发的渗透测试辅助工具，旨在�
 配置本地地址和启动命令后，点击保存按钮，保存完成后，在目录栏目中输入IP或者相关的参数点击启动程序
 <img width="1869" height="833" alt="1" src="https://github.com/user-attachments/assets/cf87aebb-017a-4c3f-8d2a-75756b05ae54" />
 
+<img width="1780" height="690" alt="image" src="https://github.com/user-attachments/assets/8bfe5d53-eab6-47ee-9e32-fdbf7a8f291f" />
+
+
 
 # 核心功能
 * 程序分组管理：支持创建、删除、重命名分组，便于对渗透工具进行分类管理
