@@ -1,10 +1,10 @@
 #  WinCmdRun-GUI 渗透工具箱说明文档
 # 项目概述
 WinCmdRun-GUI 是一款基于 JavaFX 开发的渗透测试辅助工具，旨在通过图形化界面便捷地管理和执行各类渗透测试程序，支持批量执行、参数配置及日志记录等功能。
+
 # 界面：
 
-<img width="1187" height="638" alt="1" src="https://github.com/user-attachments/assets/e3b88a19-9e17-4120-922d-00fec7384521" />
-
+<img width="1187" height="638" alt="1" src="https://github.com/user-attachments/assets/e8ad35bd-2fbc-4910-bf6d-438507410f52" />
 
 # 核心功能
 * 程序分组管理：支持创建、删除、重命名分组，便于对渗透工具进行分类管理
